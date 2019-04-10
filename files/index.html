@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>index</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('#btn11').click(function(){
+        $('#table1').slideToggle(3000);
+      });  
+      $('#btn12').click(function(){
+        $('#table1').slideDown(3000);
+      });   
+    });
+
+
+     $(document).ready(function(){
+        $(".addrow").click(function(){
+            var name = $("#name").val();
+            var lastname = $("#lastname").val();
+            var email = $("#email").val();
+            var add12 = "<tr><td><input type='checkbox' name='record'>  </td>  <td>" + name + "</td>  <td>" + lastname + "</td>  <td>" + email + "</td></tr>";
+            $("table tbody").append(add12);
+        });
+        
+       
+        $(".delete-row").click(function(){
+            $("table tbody").find('input[name="record"]').each(function()
+            {
+                if($(this).is(":checked"))
+                {
+                    $(this).parents("tr").remove();
+                }
+            });
+        });
+    });
+  </script>
+
+  <style type="text/css">
+    table{
+        width: 100%;
+        margin: 20px 0;
+        border-collapse: collapse;
+    }
+    table, th, td{
+        border: 1px solid #cdcdcd;
+    }
+    table th, table td{
+        padding: 5px;
+        text-align: left;
+    }
+</style>
+</head>
+<body>
+
+<div class="container" class="text-center">
+ 
+  <h1 style="color:red;">Add Row and Colum to fill this form</h1>
+  <form>
+        Firstname:<input type="text" id="name" placeholder="Firstname Name">
+        <br>
+        <br>
+        Lastname:<input type="text" id="lastname" placeholder="Last Name">
+        <br>
+        <br>
+        Email address:<input type="text" id="email" placeholder="Email Address">
+        <br>
+        <br>
+        <input type="button" class="addrow" value="AddRow">
+        <hr>
+    </form>   
+    <button id="btn12">Click Here to Show</button>
+  <div class="table-responsive" id="table1">      
+  <table class="table table-bordered">
+    <thead>
+      <tr class="danger">
+        <th>Selecet</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email<span style="float:right;" id="btn11" class="glyphicon glyphicon-remove"></span></th>
+      </tr>
+    </thead>
+    <tbody>
+    
+    </tbody>
+  </table>
+  <button type="button" class="delete-row">Delete Row</button>
+</div>
+</div>
+</body>
+</html>

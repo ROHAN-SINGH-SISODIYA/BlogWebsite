@@ -1,0 +1,70 @@
+<html>
+<head>
+<title> Dynamically  </title>
+<script  src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>      
+<script type="text/javascript">
+$(function() {
+var addDiv = $('#addinput');
+var i = $('#addinput p').size() + 1;
+
+$('#addNew').live('click', function() {
+$('<p><input type="text" id="p_new" size="40" name="p_new_' + i +'" value="" placeholder="I am New" /><a href="#" id="remNew">Remove</a> </p>').appendTo(addDiv);
+i++;
+
+return false;
+});
+
+$('#remNew').live('click', function() {
+if( i > 2 ) {
+$(this).parents('p').remove();
+i--;
+}
+return false;
+});
+});
+
+</script>
+
+</head>
+<body>
+<h2>Dynammically Add field</h2>
+
+<div id="addinput">
+<p>
+<<input type="text" id="p_new" size="20" name="p_new" value="" placeholder="Input Value" /><a href="#" id="addNew">Add</a>
+</p>
+</div>
+
+</body>
+</html>
+<!--<!DOCTYPE html>
+<html>
+<head>
+  <title>index</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+
+  <script type="text/javascript">
+     $(document).ready(function(){
+      $("#btn1").click(function(){
+        var label=prompt("Enter label:");
+        var type=prompt("enter input:");
+        if(label && type)
+        {
+          $('p.first1').append("<p>"+label+"+"<input type='"+type+"'/>"+"</p>);
+        }
+      });
+     });
+  </script>
+</head>
+<body>
+
+
+        <input type="button" name="" value="addfield" id="btn1">
+        <p class="first1">username:<input type="text" name="" id="blank1"/></p>
+        
+</body>
+</html>
+-->
